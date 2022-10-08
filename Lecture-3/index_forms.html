@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Forms Demo</h1>
+    <hr>
+    <h2>Get Form</h2>
+    <form action=""></form>
+    <hr>
+    <h2>Post Form</h2>
+    <form action=""></form>
+    <hr>
+
+    <h2>Form with Fieldsets</h2>
+
+    <form action="GET">
+        <fieldset id="personal-info">
+            <legend>Personal Information</legend>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="name"/>
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" placeholder=""/>
+            </div>
+            <div>
+                <label for="college">College</label>
+                <input type="text" name="college" id="college" />
+            </div>
+            <div>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Educational Info</legend>
+            <div>
+                <label for="qualification">
+                    Qualification
+                </label><input type="text" name="qualification" id="qualification"></div>
+        </fieldset>
+        <button type="submit"></button>
+    </form>
+</body>
+</html>
