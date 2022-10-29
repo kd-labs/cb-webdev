@@ -10,6 +10,7 @@
 nav {
   /* border: 2px solid black; */
   position: fixed;
+  top: 0;
   width: 100%;
   background-color: #2873f0;
   height: 70px;
@@ -44,7 +45,8 @@ nav a:link {
 }
 
 main {
-  padding-top: 120px;
+  /* padding-top: 120px; */
+  margin-top: 100px;
 }
 
 /****************** CSS Block for Logo ***********************/
@@ -78,7 +80,7 @@ main {
   color: #555;
   /* display: flex; */
   padding: 2px;
-  border: 1px solid currentColor;
+  border: 1px solid transparent;
   border-radius: 5px;
 }
 

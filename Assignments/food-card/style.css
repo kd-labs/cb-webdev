@@ -36,7 +36,8 @@ footer {
 #discount-strip {
   font-size: 18px;
   background-color: #2196f3;
-  border: 1px solid black;
+  padding: 2px;
+  /* border: 1px solid black; */
   display: inline-block;
   position: absolute;
   bottom: 20px;
