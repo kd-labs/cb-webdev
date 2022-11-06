@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  width: 100vw;
+  /* height: 30px; */
+  border: 2px solid black;
+  text-align: center;
+  /* position: fixed; */
+  background-color: #2873f0;
+  top: 0;
+  font-size: 20px;
+  color: white;
+}
+
+ul {
+  display: flex;
+  width: 75%;
+  list-style-type: none;
+  margin: 0 auto;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (width <= 900px) {
+  ul {
+    flex-direction: column;
+    color: black;
+  }
+}
