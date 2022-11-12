@@ -1,0 +1,18 @@
+.figure-container {
+  position: relative;
+}
+
+.rating {
+  padding: 2px;
+  background-color: azure;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 10px;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+
+.rating > svg {
+  margin-top: -2px;
+}
