@@ -11,6 +11,8 @@ body {
 article {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  column-gap: 20px;
 }
 
 /* PRODUCT */
@@ -32,6 +34,13 @@ article {
 }
 
 /* PRODUCT INFORMATION */
+
+.product-price-shipping {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .price {
   font-size: 24px;
 }
@@ -41,7 +50,6 @@ article {
   text-transform: uppercase;
   font-weight: bold;
   color: #777;
-  margin-bottom: 20px;
 }
 
 .sale {
@@ -61,6 +69,10 @@ article {
   text-align: center; */
 }
 
+.product-description {
+  margin-top: 30px;
+}
+
 .more-info:link,
 .more-info:visited {
   color: black;
@@ -73,12 +85,16 @@ article {
   text-decoration: none;
 }
 
+.colors {
+  display: flex;
+  gap: 10px;
+}
+
 .color {
   background-color: #000;
   height: 22px;
   width: 22px;
   display: inline-block;
-  margin-right: 10px;
 }
 
 .color-blue {
@@ -101,8 +117,7 @@ article {
 .details-title {
   text-transform: uppercase;
   font-size: 16px;
-  margin-bottom: 15px;
-  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .details-list {
