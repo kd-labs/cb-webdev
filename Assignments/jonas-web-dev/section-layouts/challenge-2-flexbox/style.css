@@ -35,6 +35,12 @@ body {
   padding: 30px 0;
 }
 
+.product-info-price-delivery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .price {
   font-size: 24px;
 }
@@ -76,12 +82,17 @@ body {
   text-decoration: none;
 }
 
+.colors {
+  display: flex;
+  gap: 10px;
+}
+
 .color {
   background-color: #000;
   height: 22px;
   width: 22px;
   display: inline-block;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .color-blue {
