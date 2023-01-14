@@ -22,8 +22,9 @@ function updateProfileDetails(data) {
   document.getElementById("bio").innerHTML = data.bio;
   document.getElementById("followers").innerHTML =
     data.followers + " Followers";
-  document.getElementById("following").innerHTML =
-    data.following + " Following";
+  document.getElementById(
+    "following"
+  ).innerHTML = `<strong>${data.following} Following</strong>`;
   document.getElementById("profile").innerHTML = `
             <img src="${data.avatar_url}" />
             `;
