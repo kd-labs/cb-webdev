@@ -8,7 +8,6 @@ import * as fsutils from "../lib/fsutils.js";
 //  zone: string
 // }
 const SERVERS = new Map();
-// const store = new MapStore("servers.json");
 
 fsutils.read().then(
   (servers) => {
@@ -36,7 +35,6 @@ export function getServers(sort) {
 
 export async function createServer({ name, zone }) {
   const id = uuid();
-  const lastEdited = Date.now();
   const server = {
     id,
     name,
