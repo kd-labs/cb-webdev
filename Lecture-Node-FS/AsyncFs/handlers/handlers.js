@@ -6,41 +6,42 @@ export function list(req, res) {
   if (!(sort === "asc" || sort === "desc")) {
     return res.status(400).send("Invalid sort Params");
   }
-  const notes = Note.getNotes(sort);
-  res.json({ notes });
+  const servers = Server.getServers(sort);
+  res.json({ servers });
 }
 
 export async function create(req, res) {
-  const { title, body } = req.body;
-  if (title === undefined || body === undefined) {
-    return res.status(400).send("Missing title or body");
+  const { name, zone } = req.body;
+  if (name === undefined || zone === undefined) {
+    return res.status(400).send("Missing name or zone");
   }
-  const note = await Note.createNote({ title, body });
-  console.log({ note });
+  const server = await Server.createServer({ name, zone });
+  console.log({ server });
   res.send("ok");
 }
 
 export function read(req, res) {
-  // notes/:id
-  const { id } = req.params;
-  const note = Note.getNote(id);
-  res.json({ note });
+  // servers/:id
+  const { serverId } = req.params;
+  // console.log(`id : ${id}`);
+  const server = Server.getServer(serverId);
+  res.json({ server });
 }
 
 export async function update(req, res) {
-  const { id } = req.params;
-  const { title, body } = req.body;
-  if (title === undefined && body === undefined) {
-    return res.status(400).send("Missing title and body");
+  const { serverId } = req.params;
+  const { name, zone } = req.body;
+  if (name === undefined && zone === undefined) {
+    return res.status(400).send("Missing name or zone");
   }
-  const note = await Note.updateNote(id, { title, body });
-  console.log({ note });
+  const server = await Server.updateServer(serverId, { name, zone });
+  console.log({ server });
   res.send("ok");
 }
 
 export async function deleteServer(req, res) {
   const { id } = req.params;
-  const success = await Note.deleteNote(id);
+  const success = await Server.deleteServer(id);
   console.log(`deleting ${id}`, success);
   res.send("ok");
 }

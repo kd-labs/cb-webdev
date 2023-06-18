@@ -1,19 +1,20 @@
 import { v4 as uuid } from "uuid";
-import MapStore from "../lib/mapstore.js";
+// import MapStore from "../lib/mapstore.js";
+import * as fsutils from "../lib/fsutils.js";
 
-// Note {
+// Server {
 //  id: string
-//  title: string
-//  body: string
-//  lastEdited: Date
+//  name: string
+//  zone: string
 // }
-const NOTES = new Map();
-const store = new MapStore("notes.json");
+const SERVERS = new Map();
+// const store = new MapStore("servers.json");
 
-store.read().then(
-  (notes) => {
-    for (let [id, note] of notes) {
-      NOTES.set(id, note);
+fsutils.read().then(
+  (servers) => {
+    // console.log(servers);
+    for (let [id, server] of servers) {
+      SERVERS.set(id, server);
     }
   },
   (err) => {
@@ -21,54 +22,53 @@ store.read().then(
   }
 );
 
-export function getNotes(sort) {
-  const notes = Array.from(NOTES.values());
-  notes.sort((a, b) => {
+export function getServers(sort) {
+  const servers = Array.from(SERVERS.values());
+  servers.sort((a, b) => {
     if (sort === "asc") {
       return a.lastEdited - b.lastEdited;
     } else {
       return b.lastEdited - a.lastEdited;
     }
   });
-  return notes;
+  return servers;
 }
 
-export async function createNote({ title, body }) {
+export async function createServer({ name, zone }) {
   const id = uuid();
   const lastEdited = Date.now();
-  const note = {
+  const server = {
     id,
-    lastEdited,
-    title,
-    body,
+    name,
+    zone,
   };
-  NOTES.set(id, note);
-  await store.save(NOTES);
-  return note;
+  SERVERS.set(id, server);
+  await fsutils.save(SERVERS);
+  return server;
 }
 
-export async function updateNote(id, { title, body }) {
-  if (!NOTES.has(id)) {
+export async function updateServer(id, { name, zone }) {
+  if (!SERVERS.has(id)) {
     return null;
   }
-  const note = NOTES.get(id);
-  note.title = title ?? note.title;
-  note.body = body ?? note.body;
-  note.lastEdited = Date.now();
-  await store.save(NOTES);
-  return { ...note };
+  const server = SERVERS.get(id);
+  server.name = name ?? server.name;
+  server.zone = zone ?? server.zone;
+  await fsutils.save(SERVERS);
+  return { ...server }; // returning the clone of the object
 }
 
-export function getNote(id) {
-  if (!NOTES.has(id)) {
+export function getServer(id) {
+  console.log(SERVERS);
+  if (!SERVERS.has(id)) {
     return null;
   }
-  const note = NOTES.get(id);
-  return { ...note };
+  const server = SERVERS.get(id);
+  return { ...server };
 }
 
-export async function deleteNote(id) {
-  const success = NOTES.delete(id);
-  await store.save(NOTES);
+export async function deleteServer(id) {
+  const success = SERVERS.delete(id);
+  await fsutils.save(SERVERS);
   return success;
 }

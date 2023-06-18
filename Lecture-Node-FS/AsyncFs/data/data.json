@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "apac-1",
+    "zone": "as-mum-e-1a"
+  },
+  {
+    "id": 2,
+    "name": "apac-2",
+    "zone": "as-mum-e-1b"
+  },
+  {
+    "id": 3,
+    "name": "jp-1",
+    "zone": "jp-hs-a-2s"
+  }
+]
